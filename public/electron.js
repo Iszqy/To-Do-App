@@ -22,8 +22,15 @@ function createWindow() {
   // Decide what to load:
   // - In development: load from React dev server (localhost:3000)
   // - In production: load from built files
+  
   const startUrl =
-    process.env.ELECTRON_START_URL || 'http://localhost:3000';
+  //   process.env.ELECTRON_START_URL || 'http://localhost:3000';
+    process.env.ELECTRON_START_URL ||
+    url.format({
+      pathname: path.join(__dirname, '../build/index.html'),
+      protocol: 'file:',
+      slashes: true,
+    });
 
   mainWindow.loadURL(startUrl);
 

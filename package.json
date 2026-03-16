@@ -1,6 +1,7 @@
 {
   "name": "electron-todo-app",
   "version": "1.0.0",
+  "author": "Iskandar Putra",
   "description": "A simple To-Do desktop app built with React + Electron",
   "main": "public/electron.js",
   "homepage": "./",
@@ -9,7 +10,7 @@
     "build": "react-scripts build",
     "electron": "electron .",
     "electron-dev": "concurrently \"cross-env BROWSER=none npm start\" \"wait-on http://localhost:3000 && cross-env ELECTRON_START_URL=http://localhost:3000 electron .\"",
-    "package": "npm run build && electron-builder --dir"
+    "package": "npm run build && electron-builder"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -34,7 +35,7 @@
       "output": "dist"
     },
     "win": {
-      "target": "dir"
+      "target": "nsis"
     },
     "mac": {
       "target": "dir"
